@@ -55,5 +55,5 @@ CREATE TABLE sprzedarz (
     produkt_id int(11) NOT NULL,
     PRIMARY KEY (zamowienie_id,produkt_id),
     FOREIGN KEY (produkt_id) REFERENCES produkty(produkt_id)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE = InnoDB DEFAULT CHARSET=utf8;
 
