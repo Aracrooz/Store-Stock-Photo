@@ -26,13 +26,17 @@ CREATE TABLE uprawnienia (
     PRIMARY KEY (uprawnienia_id)
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8;
 
+INSERT INTO uprawnienia (uprawnienia_id, nazwa) VALUES 
+    (1,'pracownik'),
+    (2,'klient');
+
 CREATE TABLE uzytkownicy (
     uzytkownik_id int(11) NOT NULL AUTO_INCREMENT,
     imie varchar(50) NOT NULL,
     nazwisko varchar(50) NOT NULL,
     email varchar(50) NOT NULL,
     haslo varchar(100) NOT NULL,
-    uprawnienia int(11) NOT NULL,
+    uprawnienia int(11) NOT NULL DEFAULT '2',
     PRIMARY KEY (uzytkownik_id),
     UNIQUE (email),
     FOREIGN KEY (uprawnienia) REFERENCES uprawnienia(uprawnienia_id)
@@ -52,3 +56,4 @@ CREATE TABLE sprzedarz (
     PRIMARY KEY (zamowienie_id,produkt_id),
     FOREIGN KEY (produkt_id) REFERENCES produkty(produkt_id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
